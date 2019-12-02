@@ -1,6 +1,8 @@
 import React from "react";
-import {} from "./styles";
+import { Footer } from "./styles";
 
-const DashboardFooter = () => <div />;
+const DashboardFooter = () => (
+    <Footer></Footer>
+);
 
 export default DashboardFooter;

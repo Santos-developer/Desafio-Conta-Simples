@@ -1,6 +1,8 @@
 import React from "react";
-import {} from "./styles";
+import { Navbar } from "./styles";
 
-const DashboardNavbar = () => <div />;
+const DashboardNavbar = () => (
+    <Navbar></Navbar>
+);
 
 export default DashboardNavbar;
