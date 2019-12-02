@@ -8,18 +8,26 @@ import {
   Redirect
 } from "react-router-dom";
 
+import { ThemeProvider } from "styled-components";
+import GlobalStyles from "views/styles/global";
+import theme from "views/styles/theme";
+
 import DashboardLayout from "layouts/Dashboard";
 
 ReactDOM.render(
-  <Router>
-    <Switch>
-      <Route
-        path="/dashboard"
-        render={props => <DashboardLayout {...props} />}
-      />
-      <Redirect to="/dashboard" />
-    </Switch>
-  </Router>,
+  <ThemeProvider theme={theme}>
+    <GlobalStyles />
+    
+    <Router>
+      <Switch>
+        <Route
+          path="/dashboard"
+          render={props => <DashboardLayout {...props} />}
+        />
+        <Redirect to="/dashboard" />
+      </Switch>
+    </Router>
+  </ThemeProvider>,
   document.getElementById("root")
 );
 
