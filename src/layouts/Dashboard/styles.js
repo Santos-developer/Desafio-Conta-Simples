@@ -5,7 +5,7 @@ export const Layout = Styled.div`
 
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: auto 1fr 50px;
+    grid-template-rows: 65px 1fr 50px;
     grid-template-areas:
     "navbar"
     "main"
@@ -17,7 +17,7 @@ export const Layout = Styled.div`
         grid-template-areas:
         "navbar navbar"
         "sidebar main"
-        "footer footer";
+        "sidebar footer";
     }
 `
 

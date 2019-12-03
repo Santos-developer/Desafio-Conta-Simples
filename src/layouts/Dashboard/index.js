@@ -4,6 +4,7 @@ import { Switch, Route } from "react-router-dom";
 
 import routes from "routes";
 
+import Container from "components/Container";
 import DashboardNavbar from "components/Navbars/Dashboard";
 import Sidebar from "components/Sidebar";
 import DashboardFooter from "components/Footers/Dashboard";
@@ -25,7 +26,9 @@ const DashboardLayout = () => {
         <DashboardNavbar routes={routes} />
         <Sidebar routes={routes} />
         <MainContent>
-          <Switch>{getRoutes(routes)}</Switch>
+          <Container>
+            <Switch>{getRoutes(routes)}</Switch>
+          </Container>
         </MainContent>
         <DashboardFooter />
       </Layout>

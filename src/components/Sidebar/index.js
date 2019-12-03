@@ -2,6 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { Sidebar, Menu, Title, Navigation, NavItem } from "./styles";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Button from "components/Button"
 
 const RenderEasyAccessLinks = ({ routes }) => {
   return routes.map((route, index) => {
@@ -35,7 +36,8 @@ const RenderMoreLinks = ({ routes }) => {
 
 const MainSidebar = ({ routes }) => (
   <Sidebar>
-    <Title>acesso rápido</Title>
+    <Button fullWidth uppercase>Depositar</Button>
+    <Title>Acesso rápido</Title>
     <Menu>
       <Navigation>
         <RenderEasyAccessLinks routes={routes} />

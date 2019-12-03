@@ -17,6 +17,8 @@ export const Navbar = Styled.nav`
     position: fixed;
 
     background-color: white;
+    box-shadow: 1px 1px 9px #f2f2f2;
+    z-index: 1;
 
     @media screen and (min-width: 768px) {
         grid-template-columns: 150px 1fr auto;
@@ -27,7 +29,7 @@ export const Navbar = Styled.nav`
 export const NavbarBrand = Styled.a`
     grid-area: logo;
 
-    width: 100px;
+    width: 140px;
     padding-left: 15px;
     padding-right: 1.8rem;
     border-right: solid 1px rgba(0, 0, 0, 0.2);
@@ -60,7 +62,10 @@ export const NavbarMenu = Styled.ul`
     grid-area: menu;
     list-style: none;
 
+    display: ${({ isOpen }) => isOpen ? 'block;' : 'none;'}
+
     @media screen and (min-width: 768px) {
+        display: block;
         align-self: flex-start;
     }
 `;
@@ -74,7 +79,7 @@ export const NavItem = Styled.li`
         font-weight: 600;
         text-decoration: none;
         text-align: center;
-        padding: 1em;
+        padding: 1.4em 1em;
     }
     
     a:hover {
@@ -135,6 +140,10 @@ export const Picture = Styled.div`
 
 export const Content = Styled.div`
     display: none;
+
+    p {
+        font-size: .8rem;
+    }
 
     @media screen and (min-width: 1024px) {
         display: block;

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Navbar,
   NavbarBrand,
@@ -17,6 +17,8 @@ import { NavLink } from "react-router-dom";
 
 import PersonPicture from "assets/images/person.jpg";
 import { ReactComponent as Logo } from "assets/images/logo-conta-simples.svg";
+import { faBell } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const RenderLinks = ({ routes }) => {
   return routes.map((route, index) => {
@@ -34,33 +36,42 @@ const RenderLinks = ({ routes }) => {
   });
 };
 
-const DashboardNavbar = ({ routes }) => (
-  <Navbar>
-    <NavbarBrand>
-      <Logo />
-    </NavbarBrand>
-    <Toggle>
-      <ToggleLine />
-      <ToggleLine />
-      <ToggleLine />
-    </Toggle>
-    <NavbarMenu>
-      <RenderLinks routes={routes} />
-    </NavbarMenu>
+const DashboardNavbar = ({ routes }) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const toggle = () => setIsOpen(!isOpen);
+  
+  return (
+    <Navbar>
+      <NavbarBrand>
+        <Logo />
+      </NavbarBrand>
+      <Toggle onClick={toggle}>
+        <ToggleLine />
+        <ToggleLine />
+        <ToggleLine />
+      </Toggle>
+      <NavbarMenu isOpen={isOpen}>
+        <RenderLinks routes={routes} />
+      </NavbarMenu>
 
-    <NavbarProfile>
-      <Icons>Sino</Icons>
-      <Wrapper>
-        <Picture>
-          <img src={PersonPicture} alt="..." />
-        </Picture>
-        <Content>
-          <h5>Lorem</h5>
-          <p>Lorem ipsum</p>
-        </Content>
-      </Wrapper>
-    </NavbarProfile>
-  </Navbar>
-);
+      <NavbarProfile>
+        <Icons>
+          <FontAwesomeIcon icon={faBell} />
+        </Icons>
+        <Wrapper>
+          <Picture>
+            <img src={PersonPicture} alt="..." />
+          </Picture>
+          <Content>
+            <h5>Vila Uberabinha</h5>
+            <p>
+              Conta <strong>0001</strong> Agéncia <strong>43322-1</strong>
+            </p>
+          </Content>
+        </Wrapper>
+      </NavbarProfile>
+    </Navbar>
+  );
+};
 
 export default DashboardNavbar;

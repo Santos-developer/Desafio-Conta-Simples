@@ -17,7 +17,7 @@ export default createGlobalStyle`
     body {
         text-rendering: optimizeLegibility !important;
         -webkit-font-smoothing: antialiased !important;
-        font-family: 'Open Sans', sans-serif;
+        font-family: 'Roboto', sans-serif;
     }
     a {
         color: inherit;

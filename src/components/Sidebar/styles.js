@@ -3,6 +3,9 @@ import Styled from "styled-components";
 export const Sidebar = Styled.aside`
     display: none;
     grid-area: sidebar;
+    
+    top: 65px;
+    position: fixed;
 
     @media screen and (min-width: 768px) {
         display: block;
@@ -15,6 +18,7 @@ export const Menu = Styled.nav`
 `;
 
 export const Title = Styled.h5`
+    margin: 1em 0;
     text-transform: uppercase;
 `;
 
@@ -57,6 +61,4 @@ export const NavItem = Styled.li`
         margin: .4em .5em;
         position: absolute;
     }
-
-
 `;
