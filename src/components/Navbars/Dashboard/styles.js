@@ -95,7 +95,7 @@ export const NavItem = Styled.li`
         margin-left: 1em;
         
         a.active {
-            border-top: ${({ theme }) => `solid 5px ${theme.COLORS.PRIMARY};`}
+            border-top: ${({ theme }) => `solid 3px ${theme.COLORS.PRIMARY};`}
         }
     }
 `;
