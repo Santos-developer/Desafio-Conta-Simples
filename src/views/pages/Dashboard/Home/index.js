@@ -28,11 +28,11 @@ const RenderTransactions = ({ transactions }) => {
     const day = date.getDate();
     let month = date.toLocaleString("pt-br", {
       month: "long"
-    })
+    });
 
-    month = month.replace(month[0], month[0].toUpperCase())
+    month = month.replace(month[0], month[0].toUpperCase());
 
-    const year = date.getFullYear()
+    const year = date.getFullYear();
 
     const customDate = `${day} de ${month} de ${year}`;
 
@@ -108,7 +108,8 @@ const Home = ({ user }) => {
               }
             ],
             options: {
-              responsive: true
+              responsive: false,
+              maintainAspectRatio: false
             }
           }}
         />
