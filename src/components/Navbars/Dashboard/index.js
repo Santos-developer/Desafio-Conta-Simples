@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import React, { useState } from "react";
 import {
   Navbar,
@@ -6,74 +7,24 @@ import {
   ToggleLine,
   NavbarMenu,
   NavItem,
+  NavLink,
   NavbarProfile,
   Icons,
   Wrapper,
-  Content
+  Content,
+  Notification,
+  NotificationDropDown,
+  Picture,
+  PictureDropdown,
+  IconBadge,
 } from "./styles";
 
-import { NavLink, Link } from "react-router-dom";
-import Styled from "styled-components";
 import PersonPicture from "assets/images/person.jpg";
 import { ReactComponent as Logo } from "assets/images/logo-conta-simples.svg";
+
 import { faBell } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Dropdown from "components/Dropdown";
-import Badge from "components/Badge";
 
-const NotificationDropDown = Styled(Dropdown)`
-  p {
-    text-align: center;
-    margin-bottom: 1em;
-  }
-
-  a {
-    display: block;
-    padding: .2em;
-  }
-`;
-
-const Notification = Styled.div`
-  cursor: pointer;
-  position: relative;
-
-  &:hover ${NotificationDropDown} {
-    display:block;
-  }
-`;
-
-const IconBadge = Styled(Badge)`
-  top: -6px;
-  left: 3px;
-  position: absolute;
-  padding: .2em .4em;
-  border-radius: 100%;
-  font-size: .6em;
-`;
-
-const PictureDropdown = Styled(Dropdown)`
-  a {
-    display: block;
-    padding: .2em;
-  }
-`;
-
-export const Picture = Styled.div`
-    width: 45px;
-    height: 45px;
-    position: relative;
-    cursor: pointer;
-
-    &:hover ${PictureDropdown} {
-      display:block;
-    }
-
-    img {
-        width: 100%;
-        height: 100%;
-        border-radius: 50%;
-    }
-`;
 
 const RenderLinks = ({ onLinkClick, routes }) => {
   return routes.map((route, index) => {

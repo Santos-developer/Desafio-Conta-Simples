@@ -12,7 +12,10 @@ export const Container = Styled(MainContainer)`
     
     a {
         font-size: .8rem;
+        font-weight: 600;
         margin-bottom; 1em;
+
+
     }
 
     a:hover {

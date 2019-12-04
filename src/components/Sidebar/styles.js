@@ -1,6 +1,9 @@
 import Styled from "styled-components";
 import { NavLink as NLRRD } from "react-router-dom";
 
+import Badge from "components/Badge";
+import Button from "components/Button";
+
 export const Sidebar = Styled.aside`
     display: none;
     grid-area: sidebar;
@@ -21,6 +24,7 @@ export const Menu = Styled.nav`
 export const Title = Styled.h5`
     margin: 1em 0;
     text-transform: uppercase;
+    font-weight: 600;
 `;
 
 export const Navigation = Styled.nav`
@@ -61,3 +65,14 @@ export const NavLink = Styled(NLRRD)`
         text-transform: uppercase;
     }
 `;
+
+export const SidebarBadge = Styled(Badge)`
+  right: 0;
+  padding: .2em .5em;
+  font-size: .6rem;
+  border-radius: 10px;
+`;
+
+export const Deposit = Styled(Button)`
+    margin-bottom: 2em;
+`
