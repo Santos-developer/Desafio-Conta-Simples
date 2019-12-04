@@ -7,10 +7,13 @@ import {
   PanelResume,
   RowPanelResume,
   Rentability,
+  CardChart,
   CustomCard,
   CustomCardRow,
   Transactions
 } from "./styles";
+
+import { Line } from "react-chartjs-2";
 
 import Badge from "components/Badge";
 import Button from "components/Button";
@@ -59,7 +62,23 @@ const Home = () => {
       </ResumeRow>
 
       <Title>Fluxo de caixa</Title>
-      <Small>Chart.js aqui.</Small>
+      <CardChart>
+        <Line
+          data={{
+            labels: ["JAN", "MAR", "MAI", "JUL", "NOV"],
+            datasets: [
+              {
+                label: "Fluxo de caixa",
+                data: [0.5, 0.15, 1.4, 1.8, 2.5],
+                borderColor: "#46b64a"
+              }
+            ],
+            options: {
+              responsive: true
+            }
+          }}
+        />
+      </CardChart>
 
       <CustomCard>
         <CustomCardRow>

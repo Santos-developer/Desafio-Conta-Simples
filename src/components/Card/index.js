@@ -2,7 +2,7 @@ import Styled from "styled-components";
 
 export default Styled.div`
     margin: 1em 0;
-    padding: 1.4em 1.8em;
+    padding: 1em 1.4em;
     
     border-radius: 4px;
     background-color: white;

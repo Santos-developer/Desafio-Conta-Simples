@@ -83,7 +83,12 @@ export const Rentability = Styled.div`
   }
 `;
 
+export const CardChart = Styled(Card)`
+  margin-bottom: 6em;
+`
+
 export const CustomCard = Styled(Card)`
+  margin-top: 1em;
   background: linear-gradient(to right, #1ebe98, #6aeca4);
 
   h3 {
