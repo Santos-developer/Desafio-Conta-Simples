@@ -1,7 +1,6 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
 import Styled from "styled-components";
-import { Sidebar, Menu, Title, Navigation, NavItem } from "./styles";
+import { Sidebar, Menu, Title, Navigation, NavItem, NavLink } from "./styles";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Button from "components/Button";
 import Badge from "components/Badge";

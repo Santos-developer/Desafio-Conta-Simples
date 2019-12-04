@@ -1,4 +1,5 @@
 import Styled from "styled-components";
+import { NavLink as NLRRD } from "react-router-dom";
 
 export const Sidebar = Styled.aside`
     display: none;
@@ -26,21 +27,16 @@ export const Navigation = Styled.nav`
     list-style: none;
 `;
 
-export const NavItem = Styled.li`
-    display: block;
-    
-    
-    a {
-        display: flex;
-        align-items: center;
+export const NavLink = Styled(NLRRD)`
+    display: flex;
+    align-items: center;
 
-        padding: .5em 0 .5em 3em;
-        font-size: .8rem;
-        border-radius: 4px;
-        box-shadow: solid 1px 1px rgba(0,0,0,.2);
-    }
-
-    a.active {
+    padding: .5em 1em .5em 3em;
+    font-size: .8rem;
+    border-radius: 10px;
+    box-shadow: solid 1px 1px rgba(0,0,0,.2);
+    
+    &.active {
         color: ${({ theme }) => `${theme.COLORS.PRIMARY};`}
         background-color: white;
     }
@@ -52,11 +48,10 @@ export const NavItem = Styled.li`
     p::first-letter {
         text-transform: uppercase;
     }
+`;
 
-    & a.active svg {
-        color:  ${({ theme }) => `${theme.COLORS.PRIMARY};`}
-        background-color: red;
-    }
+export const NavItem = Styled.li`
+    display: block;
 
     svg {
         width: 10px;
