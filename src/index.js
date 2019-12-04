@@ -12,6 +12,7 @@ import { ThemeProvider } from "styled-components";
 import GlobalStyles from "views/styles/global";
 import theme from "views/styles/theme";
 
+import AuthLayout from "layouts/Auth";
 import DashboardLayout from "layouts/Dashboard";
 
 ReactDOM.render(
@@ -21,10 +22,14 @@ ReactDOM.render(
     <Router>
       <Switch>
         <Route
+          path="/auth"
+          render={props => <AuthLayout {...props} />}
+        />
+        <Route
           path="/dashboard"
           render={props => <DashboardLayout {...props} />}
-        />
-        <Redirect to="/dashboard" />
+          />
+        <Redirect to="/auth/login" />
       </Switch>
     </Router>
   </ThemeProvider>,

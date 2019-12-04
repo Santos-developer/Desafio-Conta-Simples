@@ -1,6 +1,19 @@
 import React from "react";
-import {} from "./styles";
+import { 
+    Navbar,
+    NavbarBrand,
+} from "./styles";
 
-const AuthNavbar = () => <div />;
+import { ReactComponent as Logo } from 'assets/images/logo-conta-simples.svg'
+
+const AuthNavbar = ({ routes }) => {
+    return (
+        <Navbar>
+            <NavbarBrand>
+                <Logo />
+            </NavbarBrand>
+        </Navbar>
+    )
+};
 
 export default AuthNavbar;

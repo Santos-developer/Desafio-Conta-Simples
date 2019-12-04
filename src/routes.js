@@ -13,6 +13,7 @@ import {
 import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 
 import Home from "views/pages/Dashboard/Home";
+import Login from "views/pages/Auth/Login";
 
 const routes = [
   {
@@ -159,6 +160,12 @@ const routes = [
     inSidebar: true,
     inMore: true
   },
+  {
+    name: "login",
+    path: "/login",
+    layout: "/auth",
+    component: Login
+  }
 ];
 
 export default routes;
