@@ -27,6 +27,16 @@ export const Navigation = Styled.nav`
     list-style: none;
 `;
 
+export const NavItem = Styled.li`
+    display: block;
+
+    svg {
+        width: 10px;
+        left: 10px;
+        position: absolute;
+    }
+`;
+
 export const NavLink = Styled(NLRRD)`
     display: flex;
     align-items: center;
@@ -35,6 +45,8 @@ export const NavLink = Styled(NLRRD)`
     font-size: .8rem;
     border-radius: 10px;
     box-shadow: solid 1px 1px rgba(0,0,0,.2);
+
+    position: relative;
     
     &.active {
         color: ${({ theme }) => `${theme.COLORS.PRIMARY};`}
@@ -47,15 +59,5 @@ export const NavLink = Styled(NLRRD)`
 
     p::first-letter {
         text-transform: uppercase;
-    }
-`;
-
-export const NavItem = Styled.li`
-    display: block;
-
-    svg {
-        width: 10px;
-        margin: .4em .5em;
-        position: absolute;
     }
 `;

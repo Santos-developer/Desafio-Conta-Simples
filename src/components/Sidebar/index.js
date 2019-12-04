@@ -15,8 +15,8 @@ const SideBadge = Styled(Badge)`
 const RenderLinks = routes => {
   return routes.map((route, index) => (
     <NavItem key={index}>
-      <FontAwesomeIcon icon={route.icon} />
       <NavLink to={route.layout + route.path}>
+        <FontAwesomeIcon icon={route.icon} />
         <p>{route.name}</p>
         {route.badge && <SideBadge>{route.badge}</SideBadge>}
       </NavLink>
@@ -32,9 +32,10 @@ const RenderEasyAccessLinks = ({ routes }) => {
 };
 
 const RenderMoreLinks = ({ routes }) => {
-  const onlyMoreRoutes = route => route.layout === "/dashboard" && route.inSidebar && route.inMore 
+  const onlyMoreRoutes = route =>
+    route.layout === "/dashboard" && route.inSidebar && route.inMore;
   const moreRoutes = routes.filter(onlyMoreRoutes);
-  return RenderLinks(moreRoutes)
+  return RenderLinks(moreRoutes);
 };
 
 const MainSidebar = ({ routes }) => (
