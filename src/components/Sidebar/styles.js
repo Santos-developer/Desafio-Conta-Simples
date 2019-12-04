@@ -31,7 +31,9 @@ export const NavItem = Styled.li`
     
     
     a {
-        display: block;
+        display: flex;
+        align-items: center;
+
         padding: .5em 0 .5em 3em;
         font-size: .8rem;
         border-radius: 4px;
@@ -43,11 +45,11 @@ export const NavItem = Styled.li`
         background-color: white;
     }
 
-    a:hover {
+    p:hover {
         color: ${({ theme }) => `${theme.COLORS.PRIMARY};`};
     }
 
-    a::first-letter {
+    p::first-letter {
         text-transform: uppercase;
     }
 

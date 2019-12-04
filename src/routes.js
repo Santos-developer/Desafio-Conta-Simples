@@ -48,7 +48,7 @@ const routes = [
     path: "/cartoes",
     layout: "/dashboard",
     component: Home,
-    inNavbar: true
+    inNavbar: true,
   },
   {
     name: "consultar saldo",
@@ -75,7 +75,8 @@ const routes = [
     layout: "/dashboard",
     component: Home,
     inSidebar: true,
-    inEasyAccess: true
+    inEasyAccess: true,
+    badge: "Novo"
   },
   {
     name: "emitir cobrança",
@@ -84,7 +85,7 @@ const routes = [
     layout: "/dashboard",
     component: Home,
     inSidebar: true,
-    inEasyAccess: true
+    inEasyAccess: true,
   },
   {
     name: "gestão de cobrança",
