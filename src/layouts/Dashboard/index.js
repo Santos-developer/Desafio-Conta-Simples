@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Layout, MainContent } from "./styles";
 import { Switch, Route } from "react-router-dom";
 
@@ -19,7 +19,12 @@ const getRoutes = routes => {
   ));
 };
 
-const DashboardLayout = () => {
+const DashboardLayout = (props) => {
+  useEffect(() => {
+    document.documentElement.scrollTop = 0;
+    document.scrollingElement.scrollTop = 0;
+  }, [props])
+
   return (
     <>
       <Layout>

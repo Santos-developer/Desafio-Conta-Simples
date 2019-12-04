@@ -70,7 +70,7 @@ const routes = [
   },
   {
     name: "cartões",
-    path: "/cartoes",
+    path: "/novos-cartoes",
     icon: faCreditCard,
     layout: "/dashboard",
     component: Home,

@@ -127,17 +127,6 @@ export const Wrapper = Styled.div`
     }
 `;
 
-export const Picture = Styled.div`
-    width: 45px;
-    height: 45px;
-
-    img {
-        width: 100%;
-        height: 100%;
-        border-radius: 50%;
-    }
-`;
-
 export const Content = Styled.div`
     display: none;
 
