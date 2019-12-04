@@ -13,6 +13,8 @@ import {
   Transactions
 } from "./styles";
 
+import { connect } from "react-redux";
+
 import { Line } from "react-chartjs-2";
 
 import Badge from "components/Badge";
@@ -20,7 +22,39 @@ import Button from "components/Button";
 
 import Man from "assets/images/man.png";
 
-const Home = () => {
+const RenderTransactions = ({ transactions }) => {
+  return transactions.map((transaction, index) => {
+    const date = new Date(transaction.date);
+    const day = date.getDate();
+    let month = date.toLocaleString("pt-br", {
+      month: "long"
+    })
+
+    month = month.replace(month[0], month[0].toUpperCase())
+
+    const year = date.getFullYear()
+
+    const customDate = `${day} de ${month} de ${year}`;
+
+    return (
+      <li key={index}>
+        <div className={transaction.deposit ? "circle" : "line"} />
+        <div className="wrapper">
+          <div className="row">
+            <div className="data">
+              <h5>{transaction.name}</h5>
+              <small>{customDate}</small>
+            </div>
+            <span className="badge">{transaction.type}</span>
+            <p className="price">R${transaction.value}</p>
+          </div>
+        </div>
+      </li>
+    );
+  });
+};
+
+const Home = ({ user }) => {
   return (
     <>
       <Title>Resumo de Novembro</Title>
@@ -31,7 +65,7 @@ const Home = () => {
           <h5>Saldo total</h5>
           <div className="panel-price">
             <p className="price">
-              <span>R$</span> 7.359,21
+              <span>R$</span> {user.account.total}
             </p>
             <Badge>15%</Badge>
           </div>
@@ -43,7 +77,7 @@ const Home = () => {
               <h5>Rentabilidade CDI</h5>
               <p className="subtitle">ESTE MÊS</p>
               <div className="panel-price">
-                <p className="price">+ R$ 202,00</p>
+                <p className="price">+ R$ {user.account.rentability}</p>
                 <Badge>R$ 0,50</Badge>
               </div>
               <small>Ontem meu rendimento foi de R$ 0,50</small>
@@ -52,7 +86,7 @@ const Home = () => {
               <h5>Últimas entradas</h5>
               <p className="subtitle">ESTE MÊS</p>
               <div className="panel-price">
-                <p className="price">+ R$ 12,873,02</p>
+                <p className="price">+ R$ {user.account.entries}</p>
                 <Badge>33%</Badge>
               </div>
               <small>33% acima do mesmo período do mês anterior</small>
@@ -99,32 +133,7 @@ const Home = () => {
       <Transactions>
         <Title>Transações</Title>
         <ul>
-          <li>
-            <div className="circle" />
-            <div className="wrapper">
-              <div className="row">
-                <div>
-                  <h5>Starbucks Coffe Company</h5>
-                  <small>10 de Novemnbro de 2019</small>
-                </div>
-                <span className="badge">Vendas</span>
-                <p className="price">R$19,90</p>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div className="line" />
-            <div className="wrapper">
-              <div className="row">
-                <div>
-                  <h5>Starbucks Coffe Company</h5>
-                  <small>10 de Novemnbro de 2019</small>
-                </div>
-                <span className="badge">Vendas</span>
-                <p className="price">R$19,90</p>
-              </div>
-            </div>
-          </li>
+          <RenderTransactions transactions={user.transactions} />
         </ul>
         <Button>Ver extrato completo</Button>
       </Transactions>
@@ -132,4 +141,12 @@ const Home = () => {
   );
 };
 
-export default Home;
+const mapStateToProps = state => ({
+  user: state.user
+});
+
+const mapDispatchToProps = dispatch => ({
+  action: () => dispatch({ type: "" })
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);

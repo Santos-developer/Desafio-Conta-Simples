@@ -8,6 +8,9 @@ import {
   Redirect
 } from "react-router-dom";
 
+import { Provider } from "react-redux";
+import store from "store";
+
 import { ThemeProvider } from "styled-components";
 import GlobalStyles from "views/styles/global";
 import theme from "views/styles/theme";
@@ -16,23 +19,21 @@ import AuthLayout from "layouts/Auth";
 import DashboardLayout from "layouts/Dashboard";
 
 ReactDOM.render(
-  <ThemeProvider theme={theme}>
-    <GlobalStyles />
-    
-    <Router>
-      <Switch>
-        <Route
-          path="/auth"
-          render={props => <AuthLayout {...props} />}
-        />
-        <Route
-          path="/dashboard"
-          render={props => <DashboardLayout {...props} />}
+  <Provider store={store}>
+    <ThemeProvider theme={theme}>
+      <GlobalStyles />
+      <Router>
+        <Switch>
+          <Route path="/auth" render={props => <AuthLayout {...props} />} />
+          <Route
+            path="/dashboard"
+            render={props => <DashboardLayout {...props} />}
           />
-        <Redirect to="/auth/login" />
-      </Switch>
-    </Router>
-  </ThemeProvider>,
+          <Redirect to="/auth/login" />
+        </Switch>
+      </Router>
+    </ThemeProvider>
+  </Provider>,
   document.getElementById("root")
 );
 

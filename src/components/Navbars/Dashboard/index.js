@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 import React, { useState } from "react";
 import {
   Navbar,
@@ -16,15 +16,16 @@ import {
   NotificationDropDown,
   Picture,
   PictureDropdown,
-  IconBadge,
+  IconBadge
 } from "./styles";
+
+import { connect } from "react-redux";
 
 import PersonPicture from "assets/images/person.jpg";
 import { ReactComponent as Logo } from "assets/images/logo-conta-simples.svg";
 
 import { faBell } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
 
 const RenderLinks = ({ onLinkClick, routes }) => {
   return routes.map((route, index) => {
@@ -46,7 +47,7 @@ const RenderLinks = ({ onLinkClick, routes }) => {
   });
 };
 
-const DashboardNavbar = ({ routes }) => {
+const DashboardNavbar = ({ routes, user, notifications }) => {
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
 
@@ -62,23 +63,24 @@ const DashboardNavbar = ({ routes }) => {
         <ToggleLine />
         <ToggleLine />
       </Toggle>
-      <NavbarMenu  isOpen={isOpen}>
+      <NavbarMenu isOpen={isOpen}>
         <RenderLinks onLinkClick={onLinkClick} routes={routes} />
       </NavbarMenu>
 
       <NavbarProfile>
         <Icons>
           <Notification>
-            <IconBadge>2</IconBadge>
+            {!!notifications.length && (
+              <IconBadge>{notifications.length}</IconBadge>
+            )}
             <FontAwesomeIcon size="1x" icon={faBell} />
             <NotificationDropDown>
               <ul>
-                <li>
-                  <Link to="/">Link 1</Link>
-                </li>
-                <li>
-                  <Link to="/">Link 2</Link>
-                </li>
+                {notifications.map((notification, index) => (
+                  <li key={index}>
+                    <Link to="/">{notification.message}</Link>
+                  </li>
+                ))}
               </ul>
             </NotificationDropDown>
           </Notification>
@@ -95,9 +97,10 @@ const DashboardNavbar = ({ routes }) => {
             </PictureDropdown>
           </Picture>
           <Content>
-            <h5>Vila Uberabinha</h5>
+            <h5>{user.name}</h5>
             <p>
-              Conta <strong>0001</strong> Agéncia <strong>43322-1</strong>
+              Conta <strong>{user.account.digit}</strong> Agéncia{" "}
+              <strong>{user.account.agency}</strong>
             </p>
           </Content>
         </Wrapper>
@@ -106,4 +109,13 @@ const DashboardNavbar = ({ routes }) => {
   );
 };
 
-export default DashboardNavbar;
+const mapStateToProps = state => ({
+  user: state.user,
+  notifications: state.notifications
+});
+
+const mapDispatchToProps = dispatch => ({
+  action: () => dispatch({ type: "" })
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(DashboardNavbar);

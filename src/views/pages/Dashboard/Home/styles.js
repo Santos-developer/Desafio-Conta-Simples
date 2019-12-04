@@ -148,6 +148,7 @@ export const Transactions = Styled(Row)`
     color: #7f7f7f;
     font-weight: 500;
   }
+
   small {
     color: #b2b2b2;
   }
@@ -186,14 +187,28 @@ export const Transactions = Styled(Row)`
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    position: relative;
   }
 
   .badge {
+    display:none;
     color: ${({ theme }) => `${theme.COLORS.PRIMARY};`}
     font-size: .6em;
     padding: .5em;
     border-radius: 4px;
     background-color: #daefde;
+    
+    position: absolute;
+    left: 60%;
+
+    @media screen and (min-width: 600px) {
+      display: block;
+    }
+  }
+
+  .data {
+    min-width: 130px;
   }
 
   button {
