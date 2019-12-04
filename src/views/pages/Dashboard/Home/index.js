@@ -65,11 +65,11 @@ const Home = ({ user }) => {
           <h5>Saldo total</h5>
           <div className="panel-price">
             <p className="price">
-              <span>R$</span> {user.account.total}
+              <span>R$</span> {user.total}
             </p>
-            <Badge>15%</Badge>
+            <Badge>0%</Badge>
           </div>
-          <small>15% acima do mesmo período do mês anterior</small>
+          <small>0% acima do mesmo período do mês anterior</small>
         </PanelTotal>
         <PanelResume>
           <RowPanelResume>
@@ -77,19 +77,19 @@ const Home = ({ user }) => {
               <h5>Rentabilidade CDI</h5>
               <p className="subtitle">ESTE MÊS</p>
               <div className="panel-price">
-                <p className="price">+ R$ {user.account.rentability}</p>
-                <Badge>R$ 0,50</Badge>
+                <p className="price">+ R$ {user.rentability}</p>
+                <Badge>R$ 0,00</Badge>
               </div>
-              <small>Ontem meu rendimento foi de R$ 0,50</small>
+              <small>Ontem meu rendimento foi de R$ 0,00</small>
             </Rentability>
             <div>
               <h5>Últimas entradas</h5>
               <p className="subtitle">ESTE MÊS</p>
               <div className="panel-price">
-                <p className="price">+ R$ {user.account.entries}</p>
-                <Badge>33%</Badge>
+                <p className="price">+ R$ {user.entries}</p>
+                <Badge>0%</Badge>
               </div>
-              <small>33% acima do mesmo período do mês anterior</small>
+              <small>0% acima do mesmo período do mês anterior</small>
             </div>
           </RowPanelResume>
         </PanelResume>
@@ -103,7 +103,7 @@ const Home = ({ user }) => {
             datasets: [
               {
                 label: "Fluxo de caixa",
-                data: [0.5, 0.15, 1.4, 1.8, 2.5],
+                data: [0,0,0,0,0],
                 borderColor: "#46b64a"
               }
             ],

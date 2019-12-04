@@ -21,7 +21,6 @@ import {
 
 import { connect } from "react-redux";
 
-import PersonPicture from "assets/images/person.jpg";
 import { ReactComponent as Logo } from "assets/images/logo-conta-simples.svg";
 
 import { faBell } from "@fortawesome/free-solid-svg-icons";
@@ -87,7 +86,7 @@ const DashboardNavbar = ({ routes, user, notifications }) => {
         </Icons>
         <Wrapper>
           <Picture>
-            <img src={PersonPicture} alt="..." />
+            <img src={user.picture} alt="..." />
             <PictureDropdown>
               <ul>
                 <li>
@@ -99,8 +98,8 @@ const DashboardNavbar = ({ routes, user, notifications }) => {
           <Content>
             <h5>{user.name}</h5>
             <p>
-              Conta <strong>{user.account.digit}</strong> Agéncia{" "}
-              <strong>{user.account.agency}</strong>
+              Conta <strong>{user.digit}</strong> Agéncia{" "}
+              <strong>{user.agency}</strong>
             </p>
           </Content>
         </Wrapper>
