@@ -58,7 +58,7 @@ const RowPanelResume = Styled(Row)`
     display: flex;
     flex-direction: column;
 
-    @media (min-width: 760px) {
+    @media (min-width: 500px) {
       flex-direction: row;
     }
 `;
