@@ -46,11 +46,21 @@ const RenderLinks = ({ onLinkClick, routes }) => {
   });
 };
 
-const DashboardNavbar = ({ routes, user, notifications }) => {
+const DashboardNavbar = ({
+  routes,
+  history,
+  user,
+  removeUser,
+  notifications
+}) => {
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
 
   const onLinkClick = () => isOpen && setIsOpen(false);
+  const signOut = () => {
+    removeUser();
+    window.localStorage.removeItem("token");
+  };
 
   return (
     <Navbar>
@@ -90,7 +100,7 @@ const DashboardNavbar = ({ routes, user, notifications }) => {
             <PictureDropdown>
               <ul>
                 <li>
-                  <Link to="/">Sair</Link>
+                  <li onClick={signOut}>Sair</li>
                 </li>
               </ul>
             </PictureDropdown>
@@ -114,7 +124,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  action: () => dispatch({ type: "" })
+  removeUser: () => dispatch({ type: "REMOVE_USER" })
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(DashboardNavbar);

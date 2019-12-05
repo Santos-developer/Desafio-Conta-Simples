@@ -1,3 +1,4 @@
+import axios from "axios";
 import React from "react";
 import ReactDOM from "react-dom";
 import * as serviceWorker from "./serviceWorker";
@@ -17,6 +18,8 @@ import theme from "views/styles/theme";
 
 import AuthLayout from "layouts/Auth";
 import DashboardLayout from "layouts/Dashboard";
+
+axios.defaults.baseURL = 'http://localhost:8000'
 
 ReactDOM.render(
   <Provider store={store}>

@@ -1,6 +1,9 @@
+import axios from "axios";
 import React, { useEffect } from "react";
+import { connect } from "react-redux";
+
 import { Layout, MainContent } from "./styles";
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, Redirect } from "react-router-dom";
 
 import routes from "routes";
 
@@ -19,11 +22,26 @@ const getRoutes = routes => {
   ));
 };
 
-const DashboardLayout = (props) => {
+const DashboardLayout = ({ history, user, setUser }) => {
+  const token = user.token || localStorage.getItem("token");
+
   useEffect(() => {
     document.documentElement.scrollTop = 0;
     document.scrollingElement.scrollTop = 0;
-  }, [props])
+  }, [history]);
+
+  useEffect(() => {
+    axios
+      .get("/api/user-profile", { headers: { authorization: token } })
+      .then(res => {
+        setUser(res.data);
+      })
+      .catch(error => {
+        history.replace("/auth/login");
+      });
+  }, [history, setUser, token]);
+
+  if (!token) return <Redirect to="/auth/login" />;
 
   return (
     <>
@@ -41,4 +59,12 @@ const DashboardLayout = (props) => {
   );
 };
 
-export default DashboardLayout;
+const mapStateToProps = state => ({
+  user: state.user
+});
+
+const mapDispatchToProps = dispatch => ({
+  setUser: userData => dispatch({ type: "SET_USER", user: userData })
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(DashboardLayout);
