@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
-import { Switch, Route } from "react-router-dom";
+import { connect } from "react-redux";
+import { Switch, Route, Redirect } from "react-router-dom";
 
 import routes from "routes";
 
 import { Layout, MainContent } from "./styles";
 
-import Container from "components/Container";
 import AuthNavbar from "components/Navbars/Auth";
 import AuthFooter from "components/Footers/Auth";
 
@@ -19,11 +19,14 @@ const getRoutes = routes => {
   ));
 };
 
-const AuthLayout = props => {
+const AuthLayout = ({ history }) => {
   useEffect(() => {
     document.documentElement.scrollTop = 0;
     document.scrollingElement.scrollTop = 0;
-  }, [props]);
+  }, [history]);
+
+  if (window.localStorage.getItem("token"))
+    return <Redirect to="/dashboard/home" />;
 
   return (
     <Layout>
@@ -36,4 +39,8 @@ const AuthLayout = props => {
   );
 };
 
-export default AuthLayout;
+const mapStateToProps = state => ({});
+
+const mapDispatchToProps = dispatch => ({});
+
+export default connect(mapStateToProps, mapDispatchToProps)(AuthLayout);

@@ -19,7 +19,25 @@ import theme from "views/styles/theme";
 import AuthLayout from "layouts/Auth";
 import DashboardLayout from "layouts/Dashboard";
 
-axios.defaults.baseURL = 'http://localhost:8000'
+axios.defaults.baseURL = "http://localhost:8000";
+
+const PrivateRoute = ({ component: Component, ...rest }) => (
+  <Route
+    {...rest}
+    render={props =>
+      localStorage.getItem("token") ? (
+        <Component {...props} />
+      ) : (
+        <Redirect
+          to={{
+            pathname: "/auth/login",
+            state: { from: props.location }
+          }}
+        />
+      )
+    }
+  />
+);
 
 ReactDOM.render(
   <Provider store={store}>
@@ -28,11 +46,8 @@ ReactDOM.render(
       <Router>
         <Switch>
           <Route path="/auth" render={props => <AuthLayout {...props} />} />
-          <Route
-            path="/dashboard"
-            render={props => <DashboardLayout {...props} />}
-          />
-          <Redirect to="/auth/login" />
+          <PrivateRoute path="/dashboard" component={DashboardLayout} />
+          <Redirect to="/dashboard/home" />
         </Switch>
       </Router>
     </ThemeProvider>

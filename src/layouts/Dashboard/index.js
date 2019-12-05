@@ -28,7 +28,7 @@ const DashboardLayout = ({ history, user, setUser }) => {
   useEffect(() => {
     document.documentElement.scrollTop = 0;
     document.scrollingElement.scrollTop = 0;
-  }, [history]);
+  }, [history, history.location.pathname]);
 
   useEffect(() => {
     axios
@@ -37,6 +37,7 @@ const DashboardLayout = ({ history, user, setUser }) => {
         setUser(res.data);
       })
       .catch(error => {
+        window.localStorage.removeItem('token')
         history.replace("/auth/login");
       });
   }, [history, setUser, token]);
