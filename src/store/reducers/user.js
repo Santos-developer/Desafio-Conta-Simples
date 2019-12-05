@@ -7,6 +7,7 @@ const INITIAL_STATE = {
   rentability: 0,
   entries: 0,
   transactions: [],
+  notifications: [],
   token: ""
 };
 

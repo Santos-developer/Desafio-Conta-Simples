@@ -46,13 +46,7 @@ const RenderLinks = ({ onLinkClick, routes }) => {
   });
 };
 
-const DashboardNavbar = ({
-  routes,
-  history,
-  user,
-  removeUser,
-  notifications
-}) => {
+const DashboardNavbar = ({ routes, user, removeUser }) => {
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
 
@@ -79,13 +73,13 @@ const DashboardNavbar = ({
       <NavbarProfile>
         <Icons>
           <Notification>
-            {!!notifications.length && (
-              <IconBadge>{notifications.length}</IconBadge>
+            {!!user.notifications.length && (
+              <IconBadge>{user.notifications.length}</IconBadge>
             )}
             <FontAwesomeIcon size="1x" icon={faBell} />
             <NotificationDropDown>
               <ul>
-                {notifications.map((notification, index) => (
+                {user.notifications.map((notification, index) => (
                   <li key={index}>
                     <Link to="/">{notification.message}</Link>
                   </li>
@@ -119,8 +113,7 @@ const DashboardNavbar = ({
 };
 
 const mapStateToProps = state => ({
-  user: state.user,
-  notifications: state.notifications
+  user: state.user
 });
 
 const mapDispatchToProps = dispatch => ({
