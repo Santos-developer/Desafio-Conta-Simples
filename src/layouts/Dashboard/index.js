@@ -13,6 +13,8 @@ import DashboardNavbar from "components/Navbars/Dashboard";
 import Sidebar from "components/Sidebar";
 import DashboardFooter from "components/Footers/Dashboard";
 
+import { setUser } from "store/actions";
+
 /**
  * Get Routes
  * @param {array} routes - Rotas
@@ -73,7 +75,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  setUser: userData => dispatch({ type: "SET_USER", user: userData })
+  setUser: userData => dispatch(setUser(userData))
 });
 
 DashboardLayout.propTypes = {

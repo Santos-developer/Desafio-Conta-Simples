@@ -1,3 +1,5 @@
+import { SET_USER, REMOVE_USER, SET_TOKEN } from "../actions/actionTypes";
+
 const INITIAL_STATE = {
   name: "",
   picture: "",
@@ -13,11 +15,11 @@ const INITIAL_STATE = {
 
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case "SET_USER":
+    case SET_USER:
       return { ...state, ...action.user };
-    case "REMOVE_USER":
+    case REMOVE_USER:
       return { ...INITIAL_STATE };
-    case "SET_TOKEN":
+    case SET_TOKEN:
       return { ...state, token: action.token };
     default:
       return state;

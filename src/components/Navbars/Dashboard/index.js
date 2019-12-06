@@ -25,6 +25,7 @@ import { ReactComponent as Logo } from "assets/images/logo-conta-simples.svg";
 
 import { faBell } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { removeUser } from "store/actions";
 
 const RenderLinks = ({ onLinkClick, routes }) => {
   return routes.map((route, index) => {
@@ -114,7 +115,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  removeUser: () => dispatch({ type: "REMOVE_USER" })
+  removeUser: () => dispatch(removeUser())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(DashboardNavbar);
