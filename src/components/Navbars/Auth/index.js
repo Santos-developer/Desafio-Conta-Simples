@@ -9,7 +9,7 @@ import { ReactComponent as Logo } from 'assets/images/logo-conta-simples.svg'
 const AuthNavbar = ({ routes }) => {
     return (
         <Navbar>
-            <NavbarBrand>
+            <NavbarBrand to="/auth/login">
                 <Logo />
             </NavbarBrand>
         </Navbar>

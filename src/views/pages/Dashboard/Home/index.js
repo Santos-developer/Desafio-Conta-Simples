@@ -150,7 +150,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({});
 
 Home.propTypes = {
-  user: PropTypes.string.isRequired
+  user: PropTypes.object.isRequired
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);

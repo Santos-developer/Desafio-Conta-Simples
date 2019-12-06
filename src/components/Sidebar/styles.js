@@ -27,7 +27,7 @@ export const Title = Styled.h5`
     font-weight: 600;
 `;
 
-export const Navigation = Styled.nav`
+export const Navigation = Styled.ul`
     list-style: none;
 `;
 

@@ -30,9 +30,8 @@ const RenderLinks = ({ onLinkClick, routes }) => {
   return routes.map((route, index) => {
     if (route.inNavbar) {
       return (
-        <NavItem>
+        <NavItem key={index}>
           <NavLink
-            key={index}
             to={route.layout + route.path}
             onClick={onLinkClick}
           >
@@ -93,9 +92,7 @@ const DashboardNavbar = ({ routes, user, removeUser }) => {
             <img src={user.picture} alt="..." />
             <PictureDropdown>
               <ul>
-                <li>
-                  <li onClick={signOut}>Sair</li>
-                </li>
+                <li onClick={signOut}>Sair</li>
               </ul>
             </PictureDropdown>
           </Picture>
