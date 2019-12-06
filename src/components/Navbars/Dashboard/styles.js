@@ -24,7 +24,7 @@ export const Navbar = Styled.nav`
     border-bottom: solid 1px #e9ebe8;
     z-index: 1;
 
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: 832px) {
         grid-template-columns: 200px 1fr auto;
         grid-template-areas: "logo menu profile";
     }
@@ -51,7 +51,7 @@ export const Toggle = Styled.div`
     align-items: center;
     cursor: pointer;
 
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: 832px) {
         display: none;
     }
 `;
@@ -69,7 +69,7 @@ export const NavbarMenu = Styled.ul`
 
     display: ${({ isOpen }) => isOpen ? 'block;' : 'none;'}
 
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: 832px) {
         display: block;
         align-self: flex-start;
     }
@@ -78,7 +78,7 @@ export const NavbarMenu = Styled.ul`
 export const NavItem = Styled.li`
     display: block; 
     
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: 832px) {
         display: inline-block;
         margin-left: 1em;
     }
@@ -105,7 +105,7 @@ export const NavLink = Styled(NLRRD)`
         color: ${({ theme }) => `${theme.COLORS.PRIMARY};`}
     }
 
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: 832px) {
         &.active {
             border-top: ${({ theme }) => `solid 3px ${theme.COLORS.PRIMARY};`}
         }
@@ -117,7 +117,7 @@ export const NavbarProfile = Styled.div`
     display: flex;
     align-items: center;
 
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: 832px) {
         margin-right: 15px;
     }
 `;
