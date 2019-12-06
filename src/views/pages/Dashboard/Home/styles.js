@@ -84,11 +84,14 @@ export const Rentability = Styled.div`
 `;
 
 export const CardChart = Styled(Card)`
-  margin-bottom: 6em;
 
   canvas {
     width: 100% !important;
     height: 50% !important;
+  }
+
+  @media (min-width: 760px) {
+    margin-bottom: 6em;
   }
 `
 

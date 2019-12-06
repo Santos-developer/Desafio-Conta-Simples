@@ -2,6 +2,13 @@ import React from "react";
 import { Sidebar, Menu, Title, Navigation, NavItem, NavLink, SidebarBadge, Deposit } from "./styles";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
+/**
+ * Render Links
+ * @param {array} routes - Rotas
+ * @description Renderiza os links
+ * @returns {array} Retorna uma coleção de JSX
+ */
+
 const RenderLinks = routes => {
   return routes.map((route, index) => (
     <NavItem key={index}>

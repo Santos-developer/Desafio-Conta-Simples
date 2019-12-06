@@ -1,4 +1,5 @@
 import axios from "axios";
+import PropTypes from "prop-types"
 import React, { useState } from "react";
 import { connect } from "react-redux";
 
@@ -67,5 +68,10 @@ const mapStateToProps = state => ({});
 const mapDispatchToProps = dispatch => ({
   setToken: token => dispatch({ type: "SET_TOKEN", token })
 });
+
+Login.propTypes = {
+  history: PropTypes.object,
+  setToken: PropTypes.func.isRequired
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login);

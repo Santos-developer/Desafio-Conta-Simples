@@ -19,8 +19,11 @@ import theme from "views/styles/theme";
 import AuthLayout from "layouts/Auth";
 import DashboardLayout from "layouts/Dashboard";
 
+
+// URL Padrão
 axios.defaults.baseURL = "http://localhost:8000";
 
+// Rota privada
 const PrivateRoute = ({ component: Component, ...rest }) => (
   <Route
     {...rest}

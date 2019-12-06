@@ -1,4 +1,5 @@
 import axios from "axios";
+import PropTypes from "prop-types";
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 
@@ -11,6 +12,13 @@ import Container from "components/Container";
 import DashboardNavbar from "components/Navbars/Dashboard";
 import Sidebar from "components/Sidebar";
 import DashboardFooter from "components/Footers/Dashboard";
+
+/**
+ * Get Routes
+ * @param {array} routes - Rotas
+ * @returns {array} Retorna uma coleção de JSX
+ * @description Retorna uma coleção de JSX
+ */
 
 const getRoutes = routes => {
   return routes.map((route, index) => (
@@ -37,7 +45,7 @@ const DashboardLayout = ({ history, user, setUser }) => {
         setUser(res.data);
       })
       .catch(error => {
-        window.localStorage.removeItem('token')
+        window.localStorage.removeItem("token");
         history.replace("/auth/login");
       });
   }, [history, setUser, token]);
@@ -67,5 +75,11 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   setUser: userData => dispatch({ type: "SET_USER", user: userData })
 });
+
+DashboardLayout.propTypes = {
+  user: PropTypes.object.isRequired,
+  setUser: PropTypes.func.isRequired,
+  history: PropTypes.object
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(DashboardLayout);

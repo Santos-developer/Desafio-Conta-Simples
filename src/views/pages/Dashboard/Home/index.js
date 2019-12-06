@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import React from "react";
 import {
   Title,
@@ -103,7 +104,7 @@ const Home = ({ user }) => {
             datasets: [
               {
                 label: "Fluxo de caixa",
-                data: [0,0,0,0,0],
+                data: [0, 0, 0, 0, 0],
                 borderColor: "#46b64a"
               }
             ],
@@ -146,8 +147,10 @@ const mapStateToProps = state => ({
   user: state.user
 });
 
-const mapDispatchToProps = dispatch => ({
-  action: () => dispatch({ type: "" })
-});
+const mapDispatchToProps = dispatch => ({});
+
+Home.propTypes = {
+  user: PropTypes.string.isRequired
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);
